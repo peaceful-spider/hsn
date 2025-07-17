@@ -1,0 +1,79 @@
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+    padding: 1rem;
+  }
+  .col1 h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .col1 p {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .col2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .circleButton {
+    width: 150px;
+    height: 150px;
+  }
+  .col2 span {
+    font-size: 1rem;
+  }
+  .circleButton svg {
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+    padding: 2rem;
+  }
+  .col1 h1 {
+    font-size: 3rem;
+  }
+  .col1 p {
+    width: 80%;
+    font-size: 1.125rem;
+  }
+  .circleButton {
+    width: 180px;
+    height: 180px;
+  }
+  .circleButton svg {
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+  }
+}
+.circleButton {
+  position: relative;
+  border: none;
+  width: 200px;
+  height: 200px;
+}
+.circleButton svg {
+  position: absolute;
+  width: calc(100% + 25px);
+  height: calc(100% + 25px);
+  transform: rotate(-90deg);
+}
+.circleButton circle {
+  fill: none;
+  stroke: rgba(0, 149, 255, 0.7);
+  stroke-width: 4;
+  stroke-dasharray: 575.48;
+  stroke-dashoffset: 575.48;
+  transition: stroke-dashoffset 0.6s ease-in-out;
+}
+.circleButton:hover circle {
+  stroke-dashoffset: 0;
+}

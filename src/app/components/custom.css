@@ -1,0 +1,198 @@
+      .nav-link {
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: #60a5fa;
+          transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+          width: 100%;
+        }
+        .nav-link:hover {
+          color: #60a5fa;
+          transform: translateY(-2px);
+        }
+        .logo {
+          transition: transform 0.3s ease;
+       
+        }
+        .logo:hover {
+          transform: scale(1.05);
+        }
+        .mobile-menu {
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+          transform: translateX(0);
+        }
+        .menu-btn {
+          transition: all 0.3s ease;
+        }
+        .menu-btn:hover {
+          transform: scale(1.1);
+        }
+        .btn-primary {
+          background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          
+        }
+        .btn-primary::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+          transition: all 0.6s ease;
+        }
+        .btn-primary:hover::before {
+          left: 100%;
+        }
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.6);
+        }
+        .cursor-dot,
+        .cursor-outline {
+          pointer-events: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          border-radius: 50%;
+          opacity: 0;
+          transform: translate(-50%, -50%);
+          transition: opacity 0.3s ease;
+          z-index: 9999;
+        }
+        .cursor-dot {
+          width: 8px;
+          height: 8px;
+          background-color: #60a5fa;
+        }
+        .cursor-outline {
+          width: 40px;
+          height: 40px;
+          border: 2px solid rgba(96, 165, 250, 0.5);
+          transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, border 0.3s ease;
+        }
+        .cursor-hover .cursor-outline {
+          width: 60px;
+          height: 60px;
+          border-color: rgba(96, 165, 250, 0.8);
+          background-color: rgba(96, 165, 250, 0.1);
+        }
+        @media (max-width: 768px) {
+          .cursor-dot,
+          .cursor-outline {
+            display: none;
+          }
+          .nav-link,
+          .logo,
+          .btn-primary {
+            cursor: pointer;
+          }
+        }
+      
+
+        button {
+                position: relative;
+                padding: 10px 20px;
+                border: 2px solid black;
+                font-family: Arial, Helvetica, sans-serif;
+
+            }
+    .borderAnimates{
+        position: relative;
+        width:140px;
+        height:60px;
+        background-color: rgb(0, 0, 0);
+        padding: 2px 0px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-radius:50px;
+    }
+
+    .borderAnimates::before{
+        content:"";
+        width:100%;
+        height:300%;
+        background-image: conic-gradient(rgb(23, 240, 222), transparent, transparent, transparent, transparent);
+        position: absolute;
+        border-radius: 100%;
+        top:-100%;
+        animation: Animate 3s linear  infinite;
+    }
+
+
+    .borderAnimates:hover::before{
+        width:200%;
+        height:300%;
+        background-image: conic-gradient(white, transparent, white, transparent, white);
+        position: absolute;
+        border-radius: 100%;
+        animation: Animatehover 10s linear ;
+        cursor: pointer;
+    }
+
+
+    .borderAnimates button{
+        padding:16px 28px;
+        font-size: 16px;
+        border-radius: 50px;
+        border: none;
+        background-color: black;
+        color:bisque;
+        
+    }
+
+    @keyframes Animate {
+        0%{
+    transform: rotateZ(0deg);
+        }
+        25%{
+            transform: rotateZ(-90deg);
+        }
+        50%{
+            transform: rotateZ(-180deg);
+        }
+        75%{
+            transform: rotateZ(-270deg);
+        }
+        100%{
+            transform: rotateZ(-360deg);
+        }
+    }
+
+    @keyframes Animatehover {
+        0%{
+    transform: scale(0);
+        }
+        25%{
+    transform: scale(25);
+        }
+
+        50%{
+    transform: scale(50);
+        }
+        75%{
+    transform: scale(75);
+        }
+
+
+
+        100%{
+            transform: scale(100);
+        }
+    }
