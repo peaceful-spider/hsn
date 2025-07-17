@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0a0a1e;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a0a1e;
+  background: #00eaff;
+  border-radius: 50px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button:hover::after {
+  left: 100%;
+}
+
+.slider-container {
+  width: 130%;
+  height: 100%;
+  perspective: 1000px;
+  position: relative;
+  left: -80px;
+  top: 20px;
+  z-index: 1;
+  overflow: hidden;
+  transform: skew(0deg, 0deg);
+  transition: transform 2.5s;
+}
+
+.slider {
+  display: flex;
+  gap: 170px;
+  position: absolute;
+  top:120px;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  flex: 0 0 350px;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    rgba(196, 39, 39, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-right: -150px;
+  transform: rotateY(5deg) translateZ(0);
+  transition: transform 0.5s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    width: 160%;
+    left: -50px;
+    height: 70vh;
+    transform: skew(0deg, 0deg);
+    transition: transform 2.5s;
+  }
+
+  .slider {
+    gap: 100px;
+    right: 0;
+  }
+
+  .card {
+    flex: 0 0 400px;
+    width: 200px;
+    height: 400px;
+    margin-right: -75px;
+  }
+}
