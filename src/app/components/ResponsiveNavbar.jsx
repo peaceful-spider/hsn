@@ -28,10 +28,7 @@ export default function ResponsiveNavbar() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <a href="#" className="logo flex items-center space-x-2 cursor-trigger">
-              <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" />
-              </svg>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Stellar</span>
+              <img src="/logos/hsn-logo.png"  className="w-[50px] h-[50px]"></img>
             </a>
 
             <div className="hidden md:flex items-center space-x-8  bg-white/5p-5">

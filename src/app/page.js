@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import SplashCursor from "./components/SplashCursor";
 import ResponsiveNavbar from "./components/ResponsiveNavbar";
 import HeroSection from "./components/HeroSection";
 import HeroSlider from "./components/HeroSlider";
@@ -10,11 +9,11 @@ import VideoText from "./components/VideoText";
 import FeedbackSliders from "./components/FeedbackSliders";
 import Counter from "./components/Counter";
 import CircleButton from "./components/CircleButton";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
    <>
-   <SplashCursor />
    <ResponsiveNavbar />
    <HeroSection />
    <HeroSlider />
@@ -26,11 +25,12 @@ export default function Home() {
         fontWeight="bold"
         fontFamily="sans-serif"
       >
-        <img src="/images/creative.svg" alt="image"></img>
+        <img src="/images/creative2.svg" alt="image"></img>
       </VideoText>
   <FeedbackSliders />
   <Counter />
   <CircleButton />
+  <Footer />
    </>
   );
 }

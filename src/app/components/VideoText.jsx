@@ -1,11 +1,10 @@
+'use client';
 
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 /**
- * A component that displays a video masked within text using an SVG mask.
- * The video is only visible within the text, with responsive scaling for all screen sizes.
+ * A component that displays a video masked within an SVG logo with the word "Creative".
+ * The video is only visible within the SVG text, with responsive scaling for all screen sizes.
  *
  * @param {Object} props
  * @param {string} props.src - Video source URL or path (e.g., "/videos/myvideo.mp4")
@@ -14,54 +13,60 @@ import React, { useEffect, useState } from "react";
  * @param {boolean} [props.muted=true] - Mute the video
  * @param {boolean} [props.loop=true] - Loop the video
  * @param {"auto" | "metadata" | "none"} [props.preload="auto"] - Video preload behavior
- * @param {React.ReactNode} props.children - Text content for the mask (e.g., "CREATIVE")
- * @param {string | number} [props.fontSize=20] - Font size for text mask (in vw or px)
- * @param {string | number} [props.fontWeight="bold"] - Font weight for text mask
- * @param {string} [props.textAnchor="middle"] - Text alignment (e.g., "start", "middle", "end")
- * @param {string} [props.dominantBaseline="middle"] - Vertical text alignment
- * @param {string} [props.fontFamily="sans-serif"] - Font family for text mask
  * @param {React.ElementType} [props.as="div"] - HTML element to render as
  */
-export default function VideoText({
+export default function VideoLogo({
   src,
-  className = "",
+  className = '',
   autoPlay = true,
   muted = true,
   loop = true,
-  preload = "auto",
-  children,
-  fontSize = 20,
-  fontWeight = "bold",
-  textAnchor = "middle",
-  dominantBaseline = "middle",
-  fontFamily = "sans-serif",
-  as: Component = "div",
+  preload = 'auto',
+  as: Component = 'div',
 }) {
-  const [svgMask, setSvgMask] = useState("");
-  const content = React.Children.toArray(children).join("");
+  const [svgMask, setSvgMask] = useState('');
 
-  // Generate SVG mask dynamically based on props and update on resize
+  // SVG logo content for the mask
+  const logoSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="100%" height="100%">
+      <g>
+        <text
+          x="50%"
+          y="50%"
+          font-family="'Poppins', sans-serif"
+          font-weight="720"
+          font-size="48"
+          fill="white"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          letter-spacing="-0.02em"
+        >
+          Creative
+        </text>
+      </g>
+    </svg>
+  `;
+
+  // Set SVG mask on mount and update on resize
   useEffect(() => {
-    const responsiveFontSize = typeof fontSize === "number" ? `${fontSize}vw` : fontSize;
-    const newSvgMask = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><text x="50%" y="50%" font-size="${responsiveFontSize}" font-weight="${fontWeight}" text-anchor="${textAnchor}" dominant-baseline="${dominantBaseline}" font-family="${fontFamily}" fill="white">${content}</text></svg>`;
-    setSvgMask(newSvgMask);
+    setSvgMask(logoSvg);
 
-    const updateSvgMask = () => setSvgMask(newSvgMask);
-    window.addEventListener("resize", updateSvgMask);
-    return () => window.removeEventListener("resize", updateSvgMask);
-  }, [content, fontSize, fontWeight, textAnchor, dominantBaseline, fontFamily]);
+    const updateSvgMask = () => setSvgMask(logoSvg);
+    window.addEventListener('resize', updateSvgMask);
+    return () => window.removeEventListener('resize', updateSvgMask);
+  }, []);
 
   const dataUrlMask = `url("data:image/svg+xml;utf8,${encodeURIComponent(svgMask)}")`;
 
   return (
     <Component
-      className={`relative  mt-24 lg:left-[5%] lg:w-[90%] h-screen flex items-center justify-center  ${className}`}
+      className={`relative mt-24 lg:left-[5%] lg:w-[90%] h-screen flex items-center justify-center ${className}`}
     >
       <div
         className="absolute inset-0 w-full h-full"
         style={{
           mask: `${dataUrlMask} no-repeat center / contain`,
-          WebkitMask: `${dataUrlMask} no-repeat center / contain`, // For older browsers
+          WebkitMask: `${dataUrlMask} no-repeat center / contain`,
         }}
       >
         <video
@@ -73,11 +78,11 @@ export default function VideoText({
           playsInline
         >
           <source src={src} type="video/mp4" />
-          <source src={src.replace(".mp4", ".webm")} type="video/webm" />
+          <source src={src.replace('.mp4', '.webm')} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
-      <span className="sr-only">{content}</span>
+      <span className="sr-only">Creative</span>
     </Component>
   );
 }
