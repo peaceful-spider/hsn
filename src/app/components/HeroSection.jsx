@@ -101,7 +101,7 @@ const HeroSection = () => {
         className="absolute top-0 left-0 w-full h-full z-0"
       />
       <Image
-        src="/images/hsnHeroImg.png" // Path to your image in the public folder
+        src="/images/HsnHeroImg.png" // Path to your image in the public folder
         alt="HSN Logo"
         width={300} // Adjust based on your image's dimensions
         height={300} // Adjust based on your image's dimensions
